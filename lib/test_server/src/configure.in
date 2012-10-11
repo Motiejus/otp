@@ -412,4 +412,9 @@ else
 fi
 AC_SUBST(test_c_compiler)
 
+if test "x$GCC" = xyes; then
+  # Treat certain GCC warnings as errors
+  CFLAGS="-Werror=return-type $CFLAGS"
+fi
+
 AC_OUTPUT(conf_vars)
