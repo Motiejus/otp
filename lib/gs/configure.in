@@ -40,6 +40,11 @@ else
     AC_MSG_RESULT(not found, using PATH at runtime)
 fi
 
+if test "x$GCC" = xyes; then
+    # Treat certain GCC warnings as errors
+    CFLAGS="-Werror=return-type $CFLAGS"
+fi
+
 AC_OUTPUT(
   tcl/$host/Makefile:tcl/Makefile.in
   tcl/win32/Makefile:tcl/Makefile.in
